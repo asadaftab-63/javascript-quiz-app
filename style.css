@@ -1,0 +1,369 @@
+/* =========================
+   1. BASIC RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================
+   2. BODY
+========================= */
+
+body {
+    font-family: Arial, sans-serif;
+
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(135deg, #667eea, #764ba2);
+
+    padding: 20px;
+}
+
+
+/* =========================
+   3. MAIN CONTAINER
+========================= */
+
+.quiz-container {
+    width: 100%;
+    max-width: 600px;
+
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 16px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+
+/* =========================
+   4. HEADER
+========================= */
+
+.quiz-header {
+    text-align: center;
+
+    margin-bottom: 30px;
+}
+
+.quiz-header h1 {
+    color: #333;
+
+    font-size: 30px;
+
+    margin-bottom: 8px;
+}
+
+.quiz-header p {
+    color: #777;
+
+    font-size: 15px;
+}
+
+
+/* =========================
+   5. QUIZ INFORMATION
+========================= */
+
+.quiz-info {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 15px;
+
+    color: #444;
+
+    font-weight: bold;
+}
+
+#timer {
+    color: #e63946;
+
+    background: #ffe5e5;
+
+    padding: 8px 12px;
+
+    border-radius: 8px;
+}
+
+
+/* =========================
+   6. PROGRESS BAR
+========================= */
+
+.progress-container {
+    width: 100%;
+
+    height: 8px;
+
+    background: #e5e7eb;
+
+    border-radius: 10px;
+
+    margin-bottom: 25px;
+
+    overflow: hidden;
+}
+
+#progress-bar {
+    width: 0%;
+
+    height: 100%;
+
+    background: #667eea;
+
+    border-radius: 10px;
+
+    transition: width 0.3s ease;
+}
+
+
+/* =========================
+   7. QUESTION
+========================= */
+
+#question {
+    color: #222;
+
+    font-size: 22px;
+
+    line-height: 1.5;
+
+    margin-bottom: 25px;
+}
+
+
+/* =========================
+   8. ANSWER OPTIONS
+========================= */
+
+#options-container {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+.option-btn {
+    width: 100%;
+
+    padding: 15px;
+
+    text-align: left;
+
+    font-size: 16px;
+
+    background: #f8f9fa;
+
+    border: 2px solid #e0e0e0;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+.option-btn:hover:not(:disabled) {
+    background: #eef0ff;
+
+    border-color: #667eea;
+}
+
+
+/* =========================
+   9. SELECTED ANSWERS
+========================= */
+
+.option-btn.selected {
+    background: #eef0ff;
+
+    border-color: #667eea;
+}
+
+
+/* Correct answer */
+
+.option-btn.correct {
+    background: #d4edda;
+
+    border-color: #28a745;
+
+    color: #155724;
+}
+
+
+/* Wrong answer */
+
+.option-btn.wrong {
+    background: #f8d7da;
+
+    border-color: #dc3545;
+
+    color: #721c24;
+}
+
+
+/* =========================
+   10. FEEDBACK
+========================= */
+
+#feedback {
+    min-height: 24px;
+
+    margin-top: 15px;
+
+    font-weight: bold;
+}
+
+
+/* =========================
+   11. NEXT BUTTON
+========================= */
+
+#next-btn {
+    width: 100%;
+
+    margin-top: 20px;
+
+    padding: 14px;
+
+    background: #667eea;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    border: none;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    transition: background 0.2s ease;
+}
+
+#next-btn:hover:not(:disabled) {
+    background: #5367d5;
+}
+
+#next-btn:disabled {
+    background: #b5b5b5;
+
+    cursor: not-allowed;
+}
+
+
+/* =========================
+   12. RESULT SCREEN
+========================= */
+
+#result-screen {
+    text-align: center;
+
+    padding: 20px 0;
+}
+
+.result-icon {
+    font-size: 65px;
+
+    margin-bottom: 20px;
+}
+
+#result-screen h2 {
+    color: #333;
+
+    margin-bottom: 15px;
+}
+
+#result-screen p {
+    color: #666;
+
+    margin-bottom: 15px;
+}
+
+#final-score {
+    color: #667eea;
+
+    font-size: 40px;
+
+    margin: 20px 0;
+}
+
+
+/* =========================
+   13. RESTART BUTTON
+========================= */
+
+#restart-btn {
+    padding: 14px 25px;
+
+    background: #667eea;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 10px;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    margin-top: 15px;
+}
+
+#restart-btn:hover {
+    background: #5367d5;
+}
+
+
+/* =========================
+   14. HIDDEN ELEMENT
+========================= */
+
+.hidden {
+    display: none !important;
+}
+
+
+/* =========================
+   15. MOBILE RESPONSIVE
+========================= */
+
+@media (max-width: 480px) {
+
+    .quiz-container {
+        padding: 20px;
+    }
+
+    .quiz-header h1 {
+        font-size: 25px;
+    }
+
+    #question {
+        font-size: 19px;
+    }
+
+    .option-btn {
+        padding: 13px;
+
+        font-size: 15px;
+    }
+
+}
